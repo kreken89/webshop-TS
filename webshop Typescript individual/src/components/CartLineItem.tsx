@@ -60,7 +60,7 @@ const img: string = new URL(`../images/${item.sku}.jpeg`, import.meta.url).href
                     title="Remove Item From Cart"
                     onClick={onRemoveFromCart}
                 >
-                    ✅
+                    ❌
                 </button>
         </li>
     )

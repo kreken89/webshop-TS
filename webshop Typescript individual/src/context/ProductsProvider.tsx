@@ -4,24 +4,46 @@ export type ProductType = {
   sku: string;
   name: string;
   price: number;
+  description: string;
 };
 
 // const initState: ProductType[] = []
 const initState: ProductType[] = [
   {
-    sku: "blue",
+    sku: "holly",
     name: "Product 1 description",
     price: 100,
+    description: "bla",
   },
   {
-    sku: "green",
+    sku: "elon",
     name: "Product 2 description",
     price: 200,
+    description: "bla",
   },
   {
-    sku: "white",
+    sku: "zlatan",
     name: "Product 3 description",
     price: 300,
+    description: "bla",
+  },
+  {
+    sku: "zlatan2",
+    name: "Product 4 description",
+    price: 250,
+    description: "bla",
+  },
+  {
+    sku: "saga",
+    name: "Product 4 description",
+    price: 250,
+    description: "bla",
+  },
+  {
+    sku: "senare",
+    name: "Product 4 description",
+    price: 250,
+    description: "bla",
   },
 ];
 
