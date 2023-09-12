@@ -7,7 +7,25 @@ const Cart = () => {
   const { dispatch, REDUCER_ACTIONS, totalItems, totalPrice, cart } = useCart()
 
   const onSubmitOrder = () => {
-    dispatch ({ type: REDUCER_ACTIONS.SUBMIT })
+    // Save the order in local storage
+    const order = {
+      items: cart,
+      totalItems: totalItems,
+      totalPrice: totalPrice,
+      orderDate: new Date().toLocaleString(),
+    }
+    // Retrieve existing orders from local storage or create an empty array
+    const existingOrdersJSON = localStorage.getItem('orders')
+    const existingOrders = existingOrdersJSON
+      ? JSON.parse(existingOrdersJSON)
+      : []
+    // Add the new order to the existing orders
+    existingOrders.push(order)
+    // Save the updated orders array back to local storage
+    localStorage.setItem('orders', JSON.stringify(existingOrders))
+    // Dispatch the action to clear the cart
+    dispatch({ type: REDUCER_ACTIONS.SUBMIT })
+    // Set the confirmation flag
     setConfirm(true)
   }
 

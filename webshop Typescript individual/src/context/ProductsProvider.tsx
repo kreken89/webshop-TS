@@ -10,40 +10,40 @@ export type ProductType = {
 // const initState: ProductType[] = []
 const initState: ProductType[] = [
   {
-    sku: "holly",
-    name: "Product 1 description",
-    price: 100,
-    description: "bla",
-  },
-  {
     sku: "elon",
-    name: "Product 2 description",
+    name: "Elon Musk",
     price: 200,
-    description: "bla",
+    description: "Ingen människa präglar vår tid lika definitivt som technörden och företagsledaren Elon Musk. I den här boken skildras den trotsige visionären och innovatören som lotsat världen in i elbilarnas, den privata rymdkapplöpningens och den artificiella intelligensens tidevarv. Ja, och så tog han ju över Twitter – och döpte om det till X. I två år har Isaacson följt Musk som en skugga, suttit med på hans möten, gått fabriksronderna och ägnat timme efter timme åt att intervjua Elon själv, hans släkt och vänner samt hans medarbetare och motståndare. Resultatet är en avslöjande skildring från insidan, fylld till brädden av fantastiska berättelser om triumfer och katastrofer, som får oss att ställa frågan: Är de demoner som driver Musk helt enkelt det som krävs för att driva innovation och framsteg?",
   },
   {
     sku: "zlatan",
-    name: "Product 3 description",
+    name: "Jag är Zlatan : Min historia",
     price: 300,
-    description: "bla",
+    description: "Jag är Zlatan är en av de största boksuccérna någonsin i Sverige. Med sina egna ord målar Zlatan upp bilden av den talangfulla lilla pojken i Rosengård som tidigt kom att bli en av världens bästa fotbollsspelare. Boken om Zlatan är en blivande svensk läsklassiker som kommer att förändra Sverige ... Det är så bra. Det är så förbannat bra.... En barndomsskildring som är ett mästerverk.",  
   },
   {
     sku: "zlatan2",
-    name: "Product 4 description",
+    name: "Adrenalina : mina okända berättelser",
     price: 250,
-    description: "bla",
+    description: "Det här är inte ett evangelium utan en 40-årig mans dagbok. En man som gör upp med sitt förflutna och ser framtiden rakt i ögonen som om den vore ännu en motståndare att möta i närkamp.I Adrenalina – Mina okända berättelser talar Zlatan Ibrahimovic öppet och ärligt om fotbollen, oron för framtiden och om den svåra konsten att låta adrenalin och balans ta lika stor plats såväl i vardagen som på fotbollsplanen. Jag är Zlatan utkom 2011, har översatts till 30 språk världen över och sålt i miljontals exemplar.",
+  },
+  {
+    sku: "holly",
+    name: "Holly",
+    price: 100,
+    description: "En lyckosam blandning av deckare och skräck, som cirklar kring det positiva skrivandet, det outhärdliga åldrandet och den ofullkomliga människans strävan. Dagens Nyheter. Jorge Castro avbryter sin joggingtur för att hjälpa ett äldre par i nöd, men blir överraskad av ett nålstick i nacken. Castro är bara ett i en rad av offer vars liv fått samma mardrömslika slut. Privatdetektiven Holly Gibney blir kontaktad av mamman till en ung kvinna som försvunnit i samma kvarter, och kommer två människor på spåren, vars gärningar inte kan beskrivas som annat än monstruösa.",
   },
   {
     sku: "saga",
-    name: "Product 4 description",
+    name: "En saga",
     price: 250,
-    description: "bla",
+    description: "Sjuttonårige Charlie Reade kommer till undsättning när hans granne, den buttre och hemlighetsfulle mr Bowditch, fallit och skadat sig illa. De blir vänner, men Charlie måste lova att hålla sig borta från det mystiska skjulet i trädgården. Vad är det som väntar på andra sidan skjulets tillbommade dörrar? Med hunden Radar vid sin sida ger sig Charlie ut på ett lika hisnande som skrämmande äventyr.",
   },
   {
     sku: "senare",
-    name: "Product 4 description",
+    name: "Senare",
     price: 250,
-    description: "bla",
+    description: "Ibland betyder ”växa upp” att du måste möta dina demoner. Jamie Conklin, son till en ensamstående, hårt arbetande mor, vill bara ha en vanlig och normal barndom. Men Jamie är inte ett vanligt barn – han ser vad ingen annan kan se och vet saker som ingen annan kan veta. Och priset han får betala för att hjälpa polisen jaga en mördare från andra sidan graven är högre än han någonsin kunnat föreställa sig.",
   },
 ];
 
@@ -83,71 +83,3 @@ export const ProductsProvider = ({ children }: childrenType): ReactElement => {
 export default ProductsContext
 
 
-
-// // Import necessary dependencies from the 'react' library.
-// import { ReactElement, createContext, useState, useEffect } from "react"
-
-// // Define a type 'ProductType' to represent a product.
-// export type ProductType = {
-//     sku: string,
-//     name: string,
-//     price: number,
-// }
-
-// // Initialize an empty array 'initState' to store products.
-// const initState: ProductType[] = []
-
-// // Define a context type 'UseProductsContextType' to represent the products context.
-// export type UseProductsContextType = { products: ProductType[] }
-
-// // Initialize an empty context state 'initContextState'.
-// const initContextState: UseProductsContextType = { products: [] }
-
-// // Create a context called 'ProductsContext' with the initial context state.
-// const ProductsContext = createContext<UseProductsContextType>(initContextState)
-
-// // Define a type 'ChildrenType' for the children components.
-// type ChildrenType = { children?: ReactElement | ReactElement[] }
-
-// // Create a component called 'ProductsProvider' to provide the products context.
-// export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
-//     // Define a state variable 'products' using 'useState' to store the products data.
-//     const [products, setProducts] = useState<ProductType[]>(initState)
-
-//     // Use 'useEffect' to fetch products data from a server when the component mounts.
-//     useEffect(() => {
-//         // Define an asynchronous function 'fetchProducts' to fetch product data.
-//         const fetchProducts = async (): Promise<ProductType[]> => {
-//             try {
-//                 // Send a GET request to 'http://localhost:3500/products'.
-//                 const response = await fetch('http://localhost:3500/products')
-
-//                 // Parse the response data as JSON.
-//                 const data = await response.json()
-
-//                 // Return the fetched product data.
-//                 return data
-//             } catch (err) {
-//                 // Handle errors, if any, and log error messages.
-//                 if (err instanceof Error) {
-//                     console.log(err.message)
-//                 }
-//                 // Return an empty array if there is an error.
-//                 return []
-//             }
-//         }
-        
-//         // Call 'fetchProducts' and update the 'products' state with the fetched data.
-//         fetchProducts().then(products => setProducts(products))
-//     }, [])  // The empty dependency array ensures this effect runs only once when mounted.
-
-//     // Provide the 'products' state value to the context for its children.
-//     return (
-//         <ProductsContext.Provider value={{ products }}>
-//             {children}
-//         </ProductsContext.Provider>
-//     )
-// }
-
-// // Export the 'ProductsContext' as the default export of this module.
-// export default ProductsContext

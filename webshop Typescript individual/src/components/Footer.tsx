@@ -13,9 +13,9 @@ const Footer = ({ viewCart }: PropsType) => {
     ? <p>Shopping Cart &copy; {year}</p>
     : (
       <>
+        <p>Shopping Cart &copy; {year}</p>
         <p>Total Items: {totalItems}</p>
         <p>Total Price: {totalPrice}</p>
-        <p>Shopping Cart &copy; {year}</p>
       </>
     )
 
