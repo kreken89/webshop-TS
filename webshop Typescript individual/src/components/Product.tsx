@@ -2,7 +2,6 @@ import { ProductType } from "../context/ProductsProvider"
 import { ReducerActionType, ReducerAction } from "../context/CartProvider"
 import { ReactElement, memo, useState } from "react"
 import ProductDetails from "./ProductDetails"
-import "../styles/Product.css"
 
 type PropsType = {
     product: ProductType,
