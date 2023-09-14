@@ -20,8 +20,6 @@ export const getImageUrl = (sku: string): string => {
 }
 
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
-//   const img: string = new URL(`../images/${product.sku}`, import.meta.url).href
-//   const img: string = product.sku; // Ersätt 'imageUrl' med det faktiska namnet på din bild-URL-egenskap
 
 const img = getImageUrl(product.sku)
 

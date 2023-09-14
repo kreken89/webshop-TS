@@ -8,24 +8,21 @@ type ProductDetailsProps = {
 }
 
 const ProductDetails = ({ product, onClose }: ProductDetailsProps) => {
-      // const image: string = new URL(`../images/${product.sku}.jpeg`, import.meta.url).href;
       const imgSrc: string = getImageUrl(product.sku)
 
-      
+      const closeModal = () => {
+        onClose();
+      };
 
   return (
     <div className="modal-layer">
       <div className="modal">
-        <div className="modal-content">
-          {/* <img src={imgSrc} alt={product.name} className="product-image" /> */}
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          {/* Add more details here */}
-          <div>
-            
-          {/* <button className="close-modal-btn" onClick={onClose}>
-            Close
-          </button> */}
+        <div className="modal-content" onClick={closeModal}>
+          <img src={imgSrc} alt={product.name} className="product-image" />
+          <div className="modal-parent">
+            <h2>{product.name}</h2>
+            <h3>{product.price} SEK</h3>
+            <p>{product.description}</p>
           </div>
         </div>
       </div>
