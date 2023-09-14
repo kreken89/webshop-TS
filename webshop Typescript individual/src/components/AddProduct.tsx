@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import ProductsContext from '../context/ProductsProvider';
 import "../styles/AddProduct.css"
 
 const AddProduct = () => {
@@ -6,8 +7,10 @@ const AddProduct = () => {
     name: '',
     price: 0,
     description: '',
-    image: '',
+    sku: '',
   });
+
+  const { products } = useContext(ProductsContext)
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,11 +20,7 @@ const AddProduct = () => {
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProduct({ ...product, image: imageUrl });
-    }
+    setProduct({ ...product, sku: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -33,13 +32,8 @@ const AddProduct = () => {
     // Combine product details with the unique identifier
     const newProduct = { ...product, id: productId };
 
-    // Retrieve existing products from local storage (if any)
-    const existingProducts = JSON.parse(
-      localStorage.getItem('products') || '[]'
-    );
-
     // Add the new product to the existing products array
-    const updatedProducts = [...existingProducts, newProduct];
+    const updatedProducts = [...products, newProduct];
 
     // Store the updated products array back in local storage
     localStorage.setItem('products', JSON.stringify(updatedProducts));
@@ -49,8 +43,10 @@ const AddProduct = () => {
       name: '',
       price: 0,
       description: '',
-      image: '',
+      sku: '',
     });
+    // Reload the page to reflect the updated product list
+    window.location.reload();
   };
 
   return (
@@ -92,10 +88,10 @@ const AddProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="image">Image:</label>
+          <label htmlFor="image">Image URL:</label>
           <input
             className="image-input"
-            type="file"
+            type="url"
             id="image"
             name="image"
             accept="image/*"

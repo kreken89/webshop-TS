@@ -10,31 +10,55 @@ type PropsType = {
     inCart: boolean,
 }
 
-const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
-
-    const img: string = new URL(`../images/${product.sku}.jpeg`, import.meta.url).href
-
-    const [showDetails,  setShowDetails] = useState(false)
-
-    const onAddToCart = () => dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } })
-
-    const itemInCart = inCart ? ' Item in Cart: ✅' : null
-
-    const toggleDetails = () => {
-        setShowDetails(!showDetails)
+export const getImageUrl = (sku: string): string => {
+    if(sku.includes ('http' || 'https')){
+        return sku
     }
+    else {
+        return new URL(`../images/${sku}`, import.meta.url).href
+    }
+}
 
-    const content =
-        <article className="product">
-            {/* <h3>{product.name}</h3> */}
-            <img src={img} alt={product.name} className="product__img" onClick={toggleDetails} />
-            <p>{new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK' }).format(product.price)}{itemInCart}</p>
-            <button onClick={onAddToCart}>Add to Cart</button>
-            {showDetails && <ProductDetails product={product} onClick={toggleDetails} />}
+const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
+//   const img: string = new URL(`../images/${product.sku}`, import.meta.url).href
+//   const img: string = product.sku; // Ersätt 'imageUrl' med det faktiska namnet på din bild-URL-egenskap
 
-        </article>
+const img = getImageUrl(product.sku)
 
-    return content
+  const [showDetails, setShowDetails] = useState(false);
+
+  const onAddToCart = () =>
+    dispatch({ type: REDUCER_ACTIONS.ADD, payload: { ...product, qty: 1 } });
+
+  const itemInCart = inCart ? ' Item in Cart: ✅' : null;
+
+  const toggleDetails = () => {
+    setShowDetails(!showDetails);
+  };
+
+  const content = (
+    <article className="product">
+      <img
+        src={img}
+        alt={product.name}
+        className="product__img"
+        onClick={toggleDetails}
+      />
+      <p>
+        {new Intl.NumberFormat('sv-SE', {
+          style: 'currency',
+          currency: 'SEK',
+        }).format(product.price)}
+        {itemInCart}
+      </p>
+      <button onClick={onAddToCart}>Add to Cart</button>
+      {showDetails && (
+        <ProductDetails product={product} onClose={toggleDetails} />
+      )}
+    </article>
+  );
+
+  return content;
 }
 
 function areProductsEqual({ product: prevProduct, inCart: prevInCart }: PropsType, { product: nextProduct, inCart: nextInCart }: PropsType) {

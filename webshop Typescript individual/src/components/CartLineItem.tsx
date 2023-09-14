@@ -3,6 +3,7 @@ import { CartItemType } from "../context/CartProvider"
 import { ReducerAction } from "../context/CartProvider"
 import { ReducerActionType } from "../context/CartProvider"
 import "../styles/CartLineItem.css"
+import { getImageUrl } from "./Product"
 
 type PropsType = {
     item: CartItemType,
@@ -10,10 +11,12 @@ type PropsType = {
     REDUCER_ACTIONS: ReducerActionType,
 }
 
-const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS}: PropsType) => {
+const CartLineItem = ({ item, dispatch, REDUCER_ACTIONS }: PropsType) => {
 
-const img: string = new URL(`../images/${item.sku}.jpeg`, import.meta.url).href
-    console.log(img);
+// const img: string = new URL(`../images/${item.sku}`, import.meta.url).href
+
+    const imgSrc: string = getImageUrl(item.sku);
+
     const lineTotal: number = (item.qty * item.price)
 
     const highestQty: number = 20 > item.qty ? 20 : item.qty
@@ -38,7 +41,7 @@ const img: string = new URL(`../images/${item.sku}.jpeg`, import.meta.url).href
 
     const content = (
         <li className="cart__item">
-            <img src={img} alt={item.name} className="cart__img" />
+            <img src={imgSrc} alt={item.name} className="cart__img" />
             <div aria-label="Item Name">{item.name}</div>
             <div aria-label="Price Per Item">Price per item: {new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(item.price)}</div>
 
