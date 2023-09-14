@@ -17,7 +17,7 @@ const ProductDetails = ({ product, onClose }: ProductDetailsProps) => {
     <div className="modal-layer">
       <div className="modal">
         <div className="modal-content">
-          <img src={imgSrc} alt={product.name} className="product-image" />
+          {/* <img src={imgSrc} alt={product.name} className="product-image" /> */}
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           {/* Add more details here */}

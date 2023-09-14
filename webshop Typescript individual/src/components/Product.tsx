@@ -2,6 +2,7 @@ import { ProductType } from "../context/ProductsProvider"
 import { ReducerActionType, ReducerAction } from "../context/CartProvider"
 import { ReactElement, memo, useState } from "react"
 import ProductDetails from "./ProductDetails"
+import "../styles/Product.css"
 
 type PropsType = {
     product: ProductType,
@@ -44,7 +45,7 @@ const img = getImageUrl(product.sku)
         className="product__img"
         onClick={toggleDetails}
       />
-      <p>
+      <p className="price_styling">
         {new Intl.NumberFormat('sv-SE', {
           style: 'currency',
           currency: 'SEK',

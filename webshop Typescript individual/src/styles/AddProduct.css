@@ -1,4 +1,4 @@
-/* .add_products-container {
+.add_products-container {
     width: 80vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -53,4 +53,4 @@ textarea {
 
 .submit_new_product-btn:hover {
     box-shadow: 0 0 5px #aaa;
-} */
+}

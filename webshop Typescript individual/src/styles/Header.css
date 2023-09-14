@@ -1,4 +1,4 @@
-/* .header {
+.header {
     background-color: #f7db0c;
     position: sticky;
     top: 0;
@@ -16,4 +16,12 @@
 
 .header__price-box {
     text-align: right;
-} */
+}
+
+/* ---------------------------------------------------- */
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+}

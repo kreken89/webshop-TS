@@ -1,6 +1,6 @@
-/* .footer {
+.footer {
     flex-grow: 1;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
-} */
+}
