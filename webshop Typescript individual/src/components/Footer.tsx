@@ -1,4 +1,5 @@
 import useCart from "../hooks/UseCart"
+import "../styles/Footer.css"
 
 type PropsType = {
   viewCart: boolean,

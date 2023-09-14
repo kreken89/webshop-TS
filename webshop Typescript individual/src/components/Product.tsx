@@ -13,7 +13,6 @@ type PropsType = {
 const Product = ({ product, dispatch, REDUCER_ACTIONS, inCart }: PropsType): ReactElement => {
 
     const img: string = new URL(`../images/${product.sku}.jpeg`, import.meta.url).href
-    console.log(img)
 
     const [showDetails,  setShowDetails] = useState(false)
 

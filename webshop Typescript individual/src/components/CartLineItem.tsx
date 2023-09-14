@@ -2,6 +2,7 @@ import { ChangeEvent, ReactElement, memo } from "react"
 import { CartItemType } from "../context/CartProvider"
 import { ReducerAction } from "../context/CartProvider"
 import { ReducerActionType } from "../context/CartProvider"
+import "../styles/CartLineItem.css"
 
 type PropsType = {
     item: CartItemType,
@@ -39,7 +40,7 @@ const img: string = new URL(`../images/${item.sku}.jpeg`, import.meta.url).href
         <li className="cart__item">
             <img src={img} alt={item.name} className="cart__img" />
             <div aria-label="Item Name">{item.name}</div>
-            <div aria-label="Price Per Item">{new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(item.price)}</div>
+            <div aria-label="Price Per Item">Price per item: {new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(item.price)}</div>
 
             <label htmlFor="itemQty" className="offscreen">
                 Item Quantity
@@ -52,7 +53,7 @@ const img: string = new URL(`../images/${item.sku}.jpeg`, import.meta.url).href
                 aria-label="Item Quantity"
                 onChange={onChangeQty}
             >{options}</select>
-            <div className="cart__item-subtotal" aria-label="Line Item Subtotal">
+            <div className="cart__item-subtotal" aria-label="Line Item Subtotal"> Total Price: <br/> 
                 {new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(lineTotal)}</div>
                 <button 
                     className="cart__button"

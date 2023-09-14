@@ -38,22 +38,3 @@
   }
 ]
 }
-// {
-// "products": [
-//     {
-//         "sku": "Product 1",
-//         "name": "widget",
-//         "price": 100
-//     },
-//     {
-//         "sku": "Product 2",
-//         "name": "widget",
-//         "price": 200
-//     },
-//     {
-//         "sku": "Product 3",
-//         "name": "widget",
-//         "price": 300
-//     }
-// ]
-// }
