@@ -30,3 +30,7 @@ type ReducerAction = {
     type: string,
     payload?: CartItemType,
 }
+
+type ChildrenType = { children?: ReactElement | ReactElement[] }
+
+type UseCartContextType = ReturnType<typeof useCartContext>

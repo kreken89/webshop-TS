@@ -11,7 +11,7 @@ const ProductList = () => {
 
   if (products?.length) {
     pageContent = products.map((product: ProductType) => {
-      const inCart: boolean = cart.some(item => item.sku === product.sku)
+      const inCart: boolean = cart.some((item: CartItemType) => item.sku === product.sku)
 
       return (
         <Product 
