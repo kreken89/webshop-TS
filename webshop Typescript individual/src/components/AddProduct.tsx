@@ -26,26 +26,24 @@ const AddProduct = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Generate a unique identifier for the product (e.g., using a timestamp)
     const productId = Date.now();
 
     // Combine product details with the unique identifier
     const newProduct = { ...product, id: productId };
 
-    // Add the new product to the existing products array
+    // Add a new product to the existing products array
     const updatedProducts = [...products, newProduct];
 
     // Store the updated products array back in local storage
     localStorage.setItem('products', JSON.stringify(updatedProducts));
 
-    // Clear the form or perform any other necessary actions
     setProduct({
       name: '',
       price: 0,
       description: '',
       sku: '',
     });
-    // Reload the page to reflect the updated product list
+
     window.location.reload();
   };
 

@@ -1,5 +1,3 @@
-import { ProductType } from "../context/ProductsProvider"
-import { ReducerActionType, ReducerAction } from "../context/CartProvider"
 import { ReactElement, memo, useState } from "react"
 import ProductDetails from "./ProductDetails"
 

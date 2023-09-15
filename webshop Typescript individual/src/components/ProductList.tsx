@@ -10,7 +10,7 @@ const ProductList = () => {
   let pageContent: ReactElement | ReactElement[] = <p>Loading...</p>
 
   if (products?.length) {
-    pageContent = products.map(product => {
+    pageContent = products.map((product: ProductType) => {
       const inCart: boolean = cart.some(item => item.sku === product.sku)
 
       return (
